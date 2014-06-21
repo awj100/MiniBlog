@@ -216,3 +216,8 @@ pip-log.txt
 .mr.developer.cfg
 /Website/themes/Minimal
 /Website/views/GoogleAnalytics.cshtml
+/Website/posts
+/Website/rewrites.config
+/Website/BingSiteAuth.xml
+/Website/authentication.config
+/Website/config
