@@ -35,13 +35,13 @@
   line-height: 1.1em !important;
   margin: 0 !important;
   outline: 0 !important;
-  overflow: visible !important;
+  overflow: hidden !important;
   padding: 0 !important;
   position: static !important;
   right: auto !important;
   text-align: left !important;
   top: auto !important;
-  vertical-align: baseline !important;
+  /*vertical-align: baseline !important;*/
   width: auto !important;
   box-sizing: content-box !important;
   font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace !important;
@@ -53,8 +53,9 @@
 }
 
 .syntaxhighlighter {
+	/*border-left: 2em solid #e7e7e7;*/
   width: 100% !important;
-  margin: 1em 0 1em 0 !important;
+  margin: 1em 0 1em !important;
   position: relative !important;
   overflow: auto !important;
   font-size: 1em !important;
