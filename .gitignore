@@ -221,3 +221,5 @@ pip-log.txt
 /Website/BingSiteAuth.xml
 /Website/authentication.config
 /Website/config
+/Website/scripts/SyntaxHighlighter/scripts/SyntaxHighlighter.js
+*.bundle
