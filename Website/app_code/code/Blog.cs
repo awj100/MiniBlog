@@ -227,4 +227,9 @@ public static class Blog
         return result;
     }
 
+    public static void ClearStartPageCache()
+    {
+        HttpResponse.RemoveOutputCacheItem(string.Format("/{0}", BlogPath));
+    }
+
 }
