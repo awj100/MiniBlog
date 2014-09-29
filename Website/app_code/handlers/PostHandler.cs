@@ -23,7 +23,7 @@ public class PostHandler : IHttpHandler
         }
         else if (mode == "save")
         {
-            EditPost(id, context.Request.Form["title"], context.Request.Form["excerpt"], context.Request.Form["content"], bool.Parse(context.Request.Form["isPublished"]), context.Request.Form["categories"].Split(','));
+            EditPost(id, context.Request.Form["title"], context.Request.Form["excerpt"], context.Request.Form["content"], bool.Parse(context.Request.Form["isPublished"]), context.Request.Form["categories"].Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries));
         }
     }
 
@@ -69,7 +69,7 @@ public class PostHandler : IHttpHandler
             byte[] bytes = ConvertToBytes(match.Groups[2].Value);
             string path = Blog.SaveFileToDisk(bytes, extension);
 
-            string value = string.Format("src=\"{0}\" alt=\"\" /", path);
+            string value = string.Format("src=\"{0}\" alt=\"\" ", path);
 
             if (match.Groups[1].Value == "href")
                 value = string.Format("href=\"{0}\"", path);
@@ -88,9 +88,8 @@ public class PostHandler : IHttpHandler
     {
         title = title.ToLowerInvariant().Replace(" ", "-");
         title = RemoveDiacritics(title);
-        title = Regex.Replace(title, @"([^0-9a-z-])", string.Empty);
 
-        if (Storage.GetAllPosts().Any(p => string.Equals(p.Slug, title)))
+        if (Storage.GetAllPosts().Any(p => string.Equals(p.Slug, title, StringComparison.OrdinalIgnoreCase)))
             throw new HttpException(409, "Already in use");
 
         return title.ToLowerInvariant();
