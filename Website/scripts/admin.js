@@ -8,13 +8,13 @@
         var xHtmlDocument = docImplementation.createDocument('http://www.w3.org/1999/xhtml', 'html', null);
         var xhtmlBody = xHtmlDocument.createElementNS('http://www.w3.org/1999/xhtml', 'body');
 
-        htmlDocument.body.innerHTML = "<div>" + markup + "</div>";
+        htmlDocument.body.innerHTML = "<div id=\"mbID\">" + markup + "</div>";
 
         xHtmlDocument.documentElement.appendChild(xhtmlBody);
         xHtmlDocument.importNode(htmlDocument.body, true);
         xhtmlBody.appendChild(htmlDocument.body.firstChild);
 
-        /<body.*?><div>(.*?)<\/div><\/body>/im.exec(xHtmlDocument.documentElement.innerHTML);
+        /<body.*?><div>(.*?)<\/div><\/body>/im.exec(xHtmlDocument.getElementById("mbID").innerHTML);
         return RegExp.$1;
     }
 
