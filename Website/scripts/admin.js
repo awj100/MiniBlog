@@ -14,8 +14,9 @@
         xHtmlDocument.importNode(htmlDocument.body, true);
         xhtmlBody.appendChild(htmlDocument.body.firstChild);
 
-        /<body.*?><div>(.*?)<\/div><\/body>/im.exec(xHtmlDocument.getElementById("mbID").innerHTML);
-        return RegExp.$1;
+        ///<body.*?><div>(.*?)<\/div><\/body>/im.exec(xHtmlDocument.getElementById("mbID").innerHTML);
+        //return RegExp.$1;
+        return xHtmlDocument.getElementById("mbID").innerHTML;
     }
 
     // #endregion
