@@ -95,7 +95,7 @@
     Brush.prototype = new SyntaxHighlighter.Highlighter();
     Brush.aliases = ['razor'];
 
-    SyntaxHighlighter.brushes.Xml = Brush;
+    SyntaxHighlighter.brushes.Razor = Brush;
 
     // CommonJS
     typeof (exports) != 'undefined' ? exports.Brush = Brush : null;
