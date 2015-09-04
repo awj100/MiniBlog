@@ -6,6 +6,13 @@
 
     if (string.IsNullOrEmpty(Blog.CurrentSlug))
     {
+        var fileAbout = "~/themes/" + Blog.Theme + "/About.cshtml";
+
+        if (File.Exists(Server.MapPath(fileAbout)))
+        {
+            @RenderPage(fileAbout, null)
+        }
+
         Page.ShowPaging = true;
         var posts = Blog.GetPosts(Blog.PostsPerPage);
 
@@ -32,10 +39,14 @@
             FormsAuthentication.RedirectToLoginPage();
         }
 
-        if (post == null) { throw new HttpException(404, "Post not found"); }
+        if (post == null)
+        {
+            throw new HttpException(404, "Post not found");
+        }
 
+        Page.ShowPaging = false;
         Page.Title = post.Title;
-		Page.Description = post.Excerpt;
+        Page.Description = post.Excerpt;
         lastModified = post.LastModified;
 
         Response.AddCacheDependency(new CacheDependency(Server.MapPath("~/posts/" + post.ID + ".xml")));
