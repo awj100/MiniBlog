@@ -14,8 +14,7 @@ public static class Blog
     {
         Theme = ConfigurationManager.AppSettings.Get("blog:theme");
         Title = ConfigurationManager.AppSettings.Get("blog:name");
-        PageH1 = ConfigurationManager.AppSettings.Get("blog:pageH1");
-        PageH2 = ConfigurationManager.AppSettings.Get("blog:pageH2");
+        PageTitle = ConfigurationManager.AppSettings.Get("blog:pageTitle");
         Description = ConfigurationManager.AppSettings.Get("blog:description");
         PostsPerPage = int.Parse(ConfigurationManager.AppSettings.Get("blog:postsPerPage"));
         DaysToComment = int.Parse(ConfigurationManager.AppSettings.Get("blog:daysToComment"));
@@ -27,8 +26,7 @@ public static class Blog
     public static string Title { get; private set; }
     public static string Description { get; private set; }
     public static string Theme { get; private set; }
-    public static string PageH1 { get; private set; }
-    public static string PageH2 { get; private set; }
+    public static string PageTitle { get; private set; }
     public static string Image { get; private set; }
     public static int PostsPerPage { get; private set; }
     public static int DaysToComment { get; private set; }
@@ -163,7 +161,7 @@ public static class Blog
         }
 
         string relative = string.Format("~" + url, Blog.CurrentPage + move);
-        return VirtualPathUtility.ToAbsolute(relative);
+        return VirtualPathUtility.ToAbsolute(relative) + "#posts";
     }
 
     public static string FingerPrint(string rootRelativePath, string cdnPath = "")
