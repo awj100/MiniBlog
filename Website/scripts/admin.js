@@ -93,16 +93,16 @@
         var parsedDOM;
 
         /*  IE9 doesn't support text/html MimeType https://github.com/madskristensen/MiniBlog/issues/35
-        
+
             parsedDOM = new DOMParser().parseFromString(txtContent.html(), 'text/html');
             parsedDOM = new XMLSerializer().serializeToString(parsedDOM);
 
             /<body>(.*)<\/body>/im.exec(parsedDOM);
             parsedDOM = RegExp.$1;
-        
+
         */
 
-        /* When its time to drop IE9 support toggle commented region with 
+        /* When its time to drop IE9 support toggle commented region with
            the following statement and ConvertMarkupToXhtml function */
         //parsedDOM = ConvertMarkupToValidXhtml('<p style="" class="ecxMsoNormal"><span style="font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;;">You might be looking at that title and thinking <em><span style="font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;;">the Euro symbol doesn’t fit for an ‘S’ like the dollar symbol does</span></em>. And that perfectly matches the topic of this blog post.<br> A <a target="_blank" href="https://news.layervault.com/stories/29331-results-dn-survey-of-design-salaries-2014"> recent survey</a> polled the salaries of designers around the world (it appears that these are designers with a web leaning). Much is made the fact that design salaries in the US are greater than Europe, and <a target="_blank" href="http://www.smashingmagazine.com/smashing-newsletter-issue-115/#a6">Smashing Magazine</a> even concluded that it "might be time to consider leaving Europe for a better perspective". But I think the poll is fundamentally flawed.<br>Incidentally, there`s a visual representation of the results <a target="_blank" href="http://ivanamcconnell.com/design-survey.html">here</a>.</span></p><h3><span style="font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;;">Living standards</span></h3><p class="ecxMsoNormal"><span style="font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;;">Differentliving standards occur in each country around the world &ndash; even between cities in the same country (for example, compare London with Glasgow); different living standards incur differentcosts, which are then reflected in local salaries.<br>Which gives us problem 1: this survey doesn`t take into account the local costs of living, which always has a direct effect on salaries.</span></p><h3><span style="font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;;">Consumer power</span></h3><p class="ecxMsoNormal"><span style="font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;;">Forexample, the poll collects salaries across Europe and unfairly comparesthem to the USA. Switzerland and Scandinavia have high living costs &ndash; the highest in the world according to<a target="_blank" href="http://www.numbeo.com/cost-of-living/rankings_by_country.jsp">this website</a>. And yet cross the border from Switzerland into neighbouring Italy and the consumer price index drops by a third. In theory, one should expect that salaries in Italy be proportionally lowerthan those in Switzerland. To lump these two countriestogether and compare them to a single country on the other side of the world is almost meaningless.<br>A similar drop is seen between Finland and neighbouring Russia.<br>With that in mind, let’s take a look at the weighing of votes.<br>Norway (Consumer Price Index: 145.16), Sweden (98.53), Denmark (115.09) and Switzerland (142.49) have a total of 19 votes; Turkey (8 votes, CPI:53.64)), Russia (6 votes, 61.75), Italy (5 votes, 95.76), Spain (4 votes, 75.68) and Portugal (3 votes, 67.78) whichall exhibit a sizeable difference in their consumer price index and therefore lower salaries should be anticipated, outweigh the richer countries with 23 votes.<br>And then there are Eastern European countries with small votes: Hungary (CPI: 57), Czech Republic (56.49), Poland (53.36), Romania (49.2), Belarus (50.34), Ukraine (44.33), Latvia (64.1), Moldova (38.21), Bulgaria (49.65) and Lithuania (59.68), all loweringthe average European salary. Nothing wrong with them voting, it just skews the statistics.<br>So comparing USA and European salaries is akin to comparing, say, Swiss salaries with those of all countries in the Americas - how would the USA(with a Consumer Price Index of 76.97) like to have their salaries aggregated with those from Honduras (CPI: 52.67),Guatemala (51.51), Colombia (50.14) and Bolivia (42.33)?</span></p><h3><span style="font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;;">Conclusion</span></h3><p class="ecxMsoNormal"><span style="font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;;">These figures are all but meaningless without some form of&nbsp;<a target="_blank" href="http://en.wikipedia.org/wiki/Normalization_%28statistics%29">statistical normalisation</a>.<br>As Einstein taught us, all things are relative. And without any relativity, statistics can be used to prove anything &ndash;<a target="_blank" href="https://www.youtube.com/watch?v=CpmDIP3Fn2Y">40% of people know that</a>.</span></p>');
         parsedDOM = ConvertMarkupToValidXhtml(txtContent.html());
@@ -193,7 +193,7 @@
 
     postId = $("[itemprop~='blogPost']").attr("data-id");
 
-    txtTitle = $("[itemprop~='blogPost'] [itemprop~='name']");
+    txtTitle = $("[itemprop~='blogPost'] [itemprop~='headline']");
     txtExcerpt = $("[itemprop~='description']");
     txtContent = $("[itemprop~='articleBody']");
     txtMessage = $("#admin .alert");
